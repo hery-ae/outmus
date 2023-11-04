@@ -21,7 +21,7 @@ export default function Layout({ children, appTitle }: LayoutProps) {
             <Header appTitle={ appTitle } />
             <Navbar />
             <main className="container-fluid mt-3 mb-5">{ children }</main>
-            <Footer />
+            <Footer appTitle={ appTitle } />
         </>
     )
 }

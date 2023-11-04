@@ -33,7 +33,7 @@ export default function Footer({ appTitle }: FooterProps) {
                     ))
                 }
             </ul>
-            <p className={ 'text-center text-body-tertiary my-2 small' }>&copy; { `2023 ${appTitle}` }</p>
+            <p className={ 'text-center text-body-tertiary my-2 small' }>&copy; { `2019 ${appTitle}` }</p>
         </footer>
     )
 }
