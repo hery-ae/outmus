@@ -5,7 +5,7 @@ export default function Page({ products }) {
         <>
             <div className="row mb-3">
                 <div className="col">
-                    <img src={ products.highlight_image } alt="highlight" className="img-fluid" />
+                    <img src={ products.highlight_image } alt="highlight" className="img-fluid w-100" />
                 </div>
             </div>
             <div className="row mb-3">
@@ -13,12 +13,16 @@ export default function Page({ products }) {
                     <h3>Kategori Populer</h3>
                     <div className="row justify-content-start">
                         {
-                            products.categories.map((category: { id: number, image: string, title: string }) => (
+                            products.categories.map((category: { id: number, image: string, title: string, name: string }) => (
                                 <div key={ category.id } className="col-auto col-md-6 col-lg-4">
                                     <div className="card">
                                         <img src={ category.image } className="card-img-top" alt={ category.title } />
                                         <div className="card-body">
-                                            <h5 className="card-title">{ category.title }</h5>
+                                            <h5 className="card-title">
+                                                <Link href={ `/${category.name}` }>
+                                                    <a className="link-body-emphasis text-decoration-none">{ category.title }</a>
+                                                </Link>
+                                            </h5>
                                         </div>
                                     </div>
                                 </div>
@@ -32,14 +36,14 @@ export default function Page({ products }) {
                     products.data.map((product: { id: number, image: string, title: string, price: string, category: { name: string } }) => (
                         <div key={ product.id } className="col-auto">
                             <div className="card">
-                                <img src={ product.image } className="card-img-top" alt={ product.title } />
+                                <img src={ product.image } className="card-img-top" width={ 225 } height={ 225*(623/685) } alt={ product.title } />
                                 <div className="card-body">
-                                    <Link href={ `/${product.category.name}/${product.id}` }>
-                                        <a className="link-dark text-decoration-none">
-                                            <h5 className="card-title">{ product.title }</h5>
-                                            <p className="card-text">{ product.price }</p>
-                                        </a>
-                                    </Link>
+                                    <h5 className="card-title">
+                                        <Link href={ `/${product.category.name}/${product.id}` }>
+                                            <a className="link-body-emphasis text-decoration-none">{ product.title }</a>
+                                        </Link>
+                                    </h5>
+                                    <p className="card-text">{ product.price }</p>
                                 </div>
                             </div>
                         </div>

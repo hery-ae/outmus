@@ -10,6 +10,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
     })
 
     const user = await apiRes.json()
+
     if (user.plain_text_token) {
         res.setHeader('Set-Cookie', `plain_text_token=${user.plain_text_token}; Path=/; HttpOnly`)
     }

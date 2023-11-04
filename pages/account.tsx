@@ -5,8 +5,15 @@ export default function Page({ account }) {
         return (
             <div  style={{ height: 'calc(100vh - 115px - 90px)' }}>
                 <div className="row mb-3">
-                    <div className="col">
+                    <div className="col-8">
                         <h3>{ account.name }</h3>
+                    </div>
+                    <div className="col-4 text-end">
+                        <button className="btn btn-outline-danger">
+                            <Link href="/api/sign-out">
+                                <a className="link-body-emphasis text-decoration-none">Sign out</a>
+                            </Link>
+                        </button>
                     </div>
                 </div>
                 <div className="row">
